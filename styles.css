@@ -1,0 +1,76 @@
+h1{
+  font-family: 'Playfair Display', serif;
+  size: 85px;
+  color: 	#1E90FF;
+}
+
+#select{
+  height: 40px;
+  min-width: 20%;
+  padding: 5px 15px;
+  border: 1px solid #DEDEDE;
+  border-radius: 26px;
+}
+#hide{
+  display: none;
+}
+
+.city{
+  font-family: 'Playfair Display', serif;
+  font-size: 45px;
+  color: 	#1E90FF;
+}
+
+.daydisplay{
+  width: 50%;
+  margin: 0 auto;
+  padding: 0 10px;
+  border: 1px solid #009ee2;
+  border-radius: 26px;
+  margin-bottom:20px;
+}
+
+.weather_row{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.menu{
+  width: max(100% - 160px ,min(99%,1000px));
+  margin: 0 auto 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 5px;
+
+}
+
+.item{
+  margin: auto 0;
+}
+
+.weather_row > *{
+  flex-grow: 1;
+  flex-shrink: 1;
+  text-align: center;
+}
+
+
+
+.temp{
+  font-size: 40px;
+}
+.date{
+  font-size: 20px;
+}
+
+.weather_next{
+  border: 1px solid #D3D3D3;
+  border-radius: 26px;
+  margin: 10 10px;
+  max-width: 155px;
+
+}
