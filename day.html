@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Weather report for a specifique day</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+    <p>Select a date:</p>
+
+<input type="date" id="choose_date" name="weather-start"
+       value="2021-11-03"
+       min="2013-01-01" max="2021-11-13">
+
+
+       <div>
+        <select name="selectcity" size="1" id="select1" onchange="getWoeidForADay();">
+          <option value="0">Select a city</option>
+          <option value="New York">New York</option>
+          <option value="Los Angeles">Los Angeles</option>
+          <option value="Marseille">Marseille</option>
+          <option value="Barcelona">Barcelona</option>
+          <option value="Rome">Rome</option>
+        </select>
+      
+      </div>
+
+      <div >
+        <p class="date"></p>
+        <p class="temp"></p>
+        <p class="weather"></p>
+      </div>
+
+  </body>
+</html>
