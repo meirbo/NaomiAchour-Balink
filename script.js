@@ -1,9 +1,13 @@
-function getWoeid(){
+function getCountry(){
   let select = document.getElementById("select");
-  let myhide = document.getElementById("hide");
-  let choice = select.selectedIndex;
-  let city = select.options[choice].value;
-    console.log(city);
+ // let myHide = document.getElementById("hide");
+  let choiceCity = select.selectedIndex;
+  let city = select.options[choiceCity].value;
+  console.log(city);
+  getWoeid(city);
+
+}
+function getWoeid(city){
   
     fetch(
       `https://www.metaweather.com/api/location/search/?query=${city}`
@@ -28,60 +32,77 @@ function getWoeid(){
   
     .then(weather => weather.json())
   
-    .then(displayWeather)
+    .then(WeatherOfTheNextDays)
   
     .catch(function(error){
   console.log('Error')
     });
   
   
-    function displayWeather(weather){
-  const cityAnd = document.querySelector(".city");
-  cityAnd.innerHTML = weather.title + " " + "(" + weather.parent.title + ")";
+    function WeatherOfTheNextDays(weather){
+
+      displaytitle(weather);
   
-  for (let i = 0; i < 5; i++) {
-    console.log(i);
+      displayNextDays(weather);
   
-    const Date = document.querySelectorAll(".date");
-    const Temp = document.querySelectorAll(".temp");
-    const Weather = document.querySelectorAll(".weather");
-    const Humidity = document.querySelectorAll(".humidity");
-    const Visibilite = document.querySelectorAll(".visibilite");
-    const Pressure = document.querySelectorAll(".pressure");
-  
+  function displaytitle(weather){
+    let city = document.querySelector(".city");
+    let country = document.querySelector(".country");
+    let time = document.querySelector(".time");
+    let sunrise = document.querySelector(".sunrise");
+    let sunset = document.querySelector(".sunset");
+    
+    city.innerHTML = weather.title;
+    country.innerHTML = weather.parent.title;
+    time.innerHTML ="Time" + " " + weather.time ;
+    sunrise.innerHTML ="Sunrise" + " " + weather.sun_rise;
+    sunset.innerHTML = "Sunset" + " " + weather.sun_set;
+  }
+
    
-  
-   
-  
-    Date[i].innerHTML =
+
+    function displayNextDays(weather){
+      let date = document.querySelectorAll(".date");
+      let temp = document.querySelectorAll(".temp");
+      let myWeather = document.querySelectorAll(".weather");
+      let humidity = document.querySelectorAll(".humidity");
+      let visibilite = document.querySelectorAll(".visibilite");
+      let pressure = document.querySelectorAll(".pressure");
+      let weatherSvg = document.querySelectorAll(".weathersvg");
+
+      for (let i = 0; i < 5; i++) {
+        console.log(i);
+
+     date[i].innerHTML =
        weather.consolidated_weather[i].applicable_date; 
   
-    Humidity[i].innerHTML =
+    humidity[i].innerHTML =
       "<b>Humidity</b>: " + weather.consolidated_weather[i].humidity;
-    Visibilite[i].innerHTML =
+    visibilite[i].innerHTML =
       "<b>Visibility</b>: " +
       Math.trunc(weather.consolidated_weather[i].visibility) +
       " miles";
-    Pressure[i].innerHTML =
+    pressure[i].innerHTML =
       "<b>Pressure</b>: " +
       Math.trunc(weather.consolidated_weather[i].air_pressure) +
       " mb";
-    Temp[i].innerHTML =
+    temp[i].innerHTML =
       parseInt(weather.consolidated_weather[i].the_temp) +
       "°C";
-    Weather[i].innerHTML =
+    myWeather[i].innerHTML =
       "<b>Weather</b>: " + weather.consolidated_weather[i].weather_state_name;
-    let NameAbr = weather.consolidated_weather[i].weather_state_abbr;
-    let weathersvg = document.querySelectorAll(".weathersvg");
-    console.log(NameAbr);
-    let URlsvg = `https://www.metaweather.com/static/img/weather/${NameAbr}.svg`;
-    weathersvg[i].src = URlsvg;
-  
+    let nameAbr = weather.consolidated_weather[i].weather_state_abbr;
+    let weatherSvg = document.querySelectorAll(".weathersvg");
+    console.log(nameAbr);
+    let urlSvg = `https://www.metaweather.com/static/img/weather/${nameAbr}.svg`;
+    weatherSvg[i].src = urlSvg;
   }
-  
     }
   }
-  myhide.style.display = "block";
+
+  
+  }
+ // myHide.style.display = "block";
   }
   
   function getWoeidForADay(){
@@ -131,9 +152,9 @@ function getWoeid(){
       
         function displayWeatherForADay(response){
           console.log('ok day')
-          const Dateforaday = document.querySelector(".dateforaday");
-          const Tempforaday = document.querySelector(".tempforaday");
-          const Weatherforaday = document.querySelector(".weatherforaday");
+          let Dateforaday = document.querySelector(".dateforaday");
+          let Tempforaday = document.querySelector(".tempforaday");
+          let Weatherforaday = document.querySelector(".weatherforaday");
           console.log('ok day1')
 
           Dateforaday.innerHTML = response[0].applicable_date;

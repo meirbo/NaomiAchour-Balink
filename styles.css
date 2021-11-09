@@ -1,81 +1,91 @@
 h1{
-  font-family: 'Playfair Display', serif;
   size: 85px;
-  color: 	#1E90FF;
+ text-align: center;
 }
 
 #select, #selectforaday{
-  height: 40px;
-  min-width: 20%;
-  padding: 5px 15px;
-  border: 1px solid #DEDEDE;
-  border-radius: 26px;
- 
+ height: 35px;
+ min-width: 90px;
+ padding: 5px 15px;
+ border: 1px solid #DEDEDE;
+ text-align: right;
+
 }
 #choose_date{
-  margin-bottom: 15px;
+ margin-bottom: 15px;
 }
 
+/*
 #hide{
-  display: none;
+ display: none;
+}
+*/
+.city{
+ 
+ font-size: 45px;
+ margin-right: 15px;
+
 }
 
-.city{
-  font-family: 'Playfair Display', serif;
-  font-size: 45px;
-  color: 	#1E90FF;
+.country{
+ display: grid;
+   align-content: center;
+   margin-top: 35px;
 }
 
 .daydisplay{
-  width: 50%;
-  margin: 0 auto;
-  padding: 0 10px;
-  border: 1px solid #009ee2;
-  border-radius: 26px;
-  margin-bottom:20px;
+ width: 50%;
+ margin: 0 auto;
+ padding: 0 10px;
+ border: 1px solid #009ee2;
+ border-radius: 26px;
+ margin-bottom:20px;
 }
 
 .weather_row{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  flex-direction: row;
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+ flex-direction: row;
 }
 
-.menu{
-  width: max(100% - 160px ,min(99%,1000px));
-  margin: 0 auto 20px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 0 5px;
+.title{
+ width: max(100% - 160px ,min(99%,1000px));
+ margin: 0 auto 20px;
+ display: flex;
+ flex-direction: row;
+ flex-wrap: wrap;
+ justify-content: space-between;
+ padding: 0 5px;
 
+}
+.title_city{
+ display: flex;
+ flex-direction: row;
 }
 
 .item{
-  margin: auto 0;
+ margin: auto 0;
 }
 
 .weather_row > *{
-  flex-grow: 1;
-  flex-shrink: 1;
-  text-align: center;
+ flex-grow: 1;
+ flex-shrink: 1;
+ text-align: center;
 }
 
 
 
 .temp{
-  font-size: 40px;
+ font-size: 40px;
 }
 .date{
-  font-size: 20px;
+ font-size: 20px;
 }
 
 .weather_next{
-  border: 1px solid #D3D3D3;
-  border-radius: 26px;
-  margin: 10 10px;
-  max-width: 155px;
+
+ margin: 10 10px;
+ max-width: 155px;
 
 }
